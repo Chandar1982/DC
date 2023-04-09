@@ -1,11 +1,19 @@
+# This is a basic workflow to help you get started with Actions
 
-name: test
+name: CI
 
 on: push
 
-    
+env:
+  CLOUDIFY_HOST: ${{ variables.CLOUDIFY_HOST }}
+  CLOUDIFY_USERNAME: ${{ variables.CLOUDIFY_USERNAME }}
+  CLOUDIFY_PASSWORD: ${{ variables.CLOUDIFY_PASSWORD }}
+  CLOUDIFY_TENANT: ${{ variables.CLOUDIFY_TENANT }}
+
+  
 jobs:
-  test_job:
+  build:
+    runs-on: ubuntu-latest
     steps:
       - name: Run some command
         uses: cloudify-cosmo/cli-action@v1.3
