@@ -1,3 +1,11 @@
+
+name: test
+
+on:
+  push:
+    branches:
+    - '*'
+    
 jobs:
   test_job:
     steps:
