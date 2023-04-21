@@ -14,7 +14,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Run some command
-        uses: cloudify-cosmo/cli-action@v1.3
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create environment
+        uses: cloudify-cosmo/create-environment-action@v1.3
         with:
-          command: "blueprints list"
+          environment-name: "test-$GITHUB_RUN_ID"
+          blueprint: blueprint.yaml
+
